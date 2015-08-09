@@ -7,7 +7,7 @@ var distribution = process.env.DISTRIBUTION;
 module.exports = {
   target: 'web',
 
-  entry: './src/js/index.js',
+  entry: ['./src/js/index.js'],
   output: {
     path: distribution ? 'dist' : 'src',
     publicPath: distribution ? '' : '/src',

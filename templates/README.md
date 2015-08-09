@@ -9,7 +9,7 @@ Install dependencies, then start-up the development server:
 ```bash
 $ npm install
 $ npm run dev
-$ open http://127.0.0.1:8080/src/index.html
+$ open http://localhost:8080/webpack-dev-server/src/index.html # or http://localhost:8080/src/index.html
 ```
 
 ## Contributing

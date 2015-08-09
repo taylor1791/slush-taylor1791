@@ -4,7 +4,7 @@
   "description": "<%= appDescription %>",
   "author": "<%= authorName + ' <' + authorEmail + '>' %>",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --profile --debug",
+    "dev": "webpack-dev-server --progress --colors --profile --debug --hot --live",
     "dist": "DISTRIBUTION=1 webpack --optimize-minimize --optimize-occurence-order --optimize-dedupe",
     "test": "TODO - karma"
   },
