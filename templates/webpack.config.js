@@ -1,5 +1,6 @@
-var Path = require('path');
-var Webpack = require('webpack');
+var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var distribution = process.env.DISTRIBUTION;
 
@@ -8,8 +9,9 @@ module.exports = {
 
   entry: './src/js/index.js',
   output: {
-    path: __dirname,
-    filename: (distribution ? 'dist' : 'src') + '/app.js',
+    path: distribution ? 'dist' : 'src',
+    publicPath: distribution ? '' : '/src',
+    filename: 'app.[hash].js',
     sourceMapFilename: '[file].map',
     pathinfo: !distribution
   },
@@ -27,11 +29,23 @@ module.exports = {
   },
 
   resolveLoader: {
-    root: Path.join(__dirname, '/node_modules'),
+    root: path.join(__dirname, '/node_modules'),
     alias: {}
   },
 
-  devServer: {
-    publicPath: 'src/assets/'
-  }
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/html/index.html',
+      inject: 'body',
+      minify: {
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        removeRedundantAttributes: true,
+        preventAttributesEscaping: true,
+        removeOptionalTags: true
+      }
+    })
+  ]
 };
