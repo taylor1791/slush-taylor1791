@@ -4,13 +4,20 @@
 
 ## Getting Started
 
-Install dependencies, then start-up the development server:
+Simply start the development server by running `npm run dev`. If dependences
+are not installed run `npm install`. If you don't know anything run the
+following. The distribution package can be made by using `npm run dist`.
 
 ```bash
 $ npm install
 $ npm run dev
 $ open http://localhost:8080/webpack-dev-server/src/index.html # or http://localhost:8080/src/index.html
 ```
+
+## Running tests
+
+To run all the tests, run `npm test`. To run the tests in development mode use
+`karma start`.
 
 ## Contributing
 
