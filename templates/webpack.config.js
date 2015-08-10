@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var distribution = process.env.DISTRIBUTION;
+var distribution = process.env.NODE_ENV === 'prod';
 
 module.exports = {
   target: 'web',
