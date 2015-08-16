@@ -34,6 +34,7 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(true),
     new HtmlWebpackPlugin({
       template: 'src/html/index.html',
       inject: 'body',
