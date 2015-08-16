@@ -14,7 +14,7 @@ module.exports = function(config) {
     autoWatch: true,
     singleRun: false,
     frameworks: ['jasmine'],
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS2'],
     reporters: ['progress', 'coverage'], // try dots or see available reporters: https://npmjs.org/browse/keyword/karma-reporter
 
     files: [
@@ -35,7 +35,7 @@ module.exports = function(config) {
         preLoaders: [
           {
             test: /\.jsx?$/,
-            exclude: /(\.test\.jsx?|node_modules\/)/,
+            exclude: /(jsc-setup\.js|\.test\.jsx?|node_modules\/)/,
             loader: 'isparta-loader'
           }
         ],
