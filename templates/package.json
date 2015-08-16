@@ -17,9 +17,7 @@
   "bugs": {
     "url": "<%= bugs %>"
   },
-  "keywords": [
-    ""
-  ],
+  "keywords": <%= appKeywords %>,
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^5.8.21",

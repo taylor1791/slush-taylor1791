@@ -92,7 +92,9 @@ gulp.task('default', function (done) {
         function (answers) {
             var data = extend(defaults, answers);
             data.appNameSlug = _.slugify(data.appName);
-            data.appKeywords.split( /(\s|,)+/ );
+            data.appKeywords = JSON.stringify(
+              data.appKeywords.replace(/,/g,' ').split(/\s+/g)
+            );
 
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(data))
