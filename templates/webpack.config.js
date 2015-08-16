@@ -2,12 +2,12 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var distribution = process.env.NODE_ENV === 'prod';
+var distribution = process.env.NODE_ENV === 'production';
 
 module.exports = {
   target: 'web',
 
-  entry: ['./src/js/index.js'],
+  entry: './src/js/index.js',
   output: {
     path: distribution ? 'dist' : 'src',
     publicPath: distribution ? '' : '/src',

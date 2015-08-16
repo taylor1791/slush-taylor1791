@@ -4,8 +4,8 @@
   "description": "<%= appDescription %>",
   "author": "<%= authorName + ' <' + authorEmail + '>' %>",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --profile --debug --hot --live",
-    "dist": "NODE_ENV=prod webpack --optimize-minimize --optimize-occurence-order --optimize-dedupe",
+    "start": "webpack-dev-server --progress --colors --profile --debug --hot --inline",
+    "dist": "NODE_ENV=production webpack --optimize-minimize --optimize-occurence-order --optimize-dedupe",
     "test": "karma start --single-run"
   },
   "homepage": "<%= homepage %>",

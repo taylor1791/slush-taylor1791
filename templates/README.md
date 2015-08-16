@@ -10,7 +10,7 @@ following. The distribution package can be made by using `npm run dist`.
 
 ```bash
 $ npm install
-$ npm run dev
+$ npm start
 $ open http://localhost:8080/webpack-dev-server/src/index.html # or http://localhost:8080/src/index.html
 ```
 
