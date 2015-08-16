@@ -56,15 +56,15 @@ function parseRepoDefaults() {
   var
     configFile = path.join(process.cwd(), '.git/config'),
     repo = existsSync( configFile ) ?
-      parseIniSync(configFile)['remote \"origin\"'].url : '',
-    url = ssh2html(repo),
+      (parseIniSync(configFile)['remote \"origin\"'] || {}).url : '',
+    url = ssh2html(repo || ''),
 
     result = {
       repo: repo,
       url: url,
-      homepage: url + '#readme',
-      authorUserName: url.match(/^https:\/\/(.+)\/(.+)\/(.+)$/)[2],
-      bugs: url + '/issues'
+      homepage: url ? url + '#readme' : '',
+      authorUserName: url ? url.match(/^https:\/\/(.+)\/(.+)\/(.+)$/)[2] : '',
+      bugs: url ? url + '/issues' : ''
     };
 
   return result;
@@ -74,13 +74,6 @@ var defaults = extend(
   parsePlatformDefaults(),
   parseRepoDefaults()
 );
-
-
-
-
-
-
-
 
 gulp.task('default', function (done) {
     var prompts = [{
