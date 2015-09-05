@@ -14,6 +14,7 @@ var
 
   gulp = require('gulp'),
   install = require('gulp-install'),
+  shell = require('gulp-shell'),
   conflict = require('gulp-conflict'),
   template = require('gulp-template'),
   rename = require('gulp-rename'),
@@ -75,7 +76,17 @@ var defaults = extend(
   parseRepoDefaults()
 );
 
-gulp.task('default', function (done) {
+gulp.task('default', ['install-deps'], function () {
+    return gulp.src('')
+        .pipe(shell(['./setup.sh']))
+});
+
+gulp.task('install-deps', ['setup-files'], function() {
+    return gulp.src('package.json')
+        .pipe(install());
+});
+
+gulp.task('setup-files', function (done) {
     var prompts = [{
         name: 'appName',
         message: 'What is the name of your project?',
@@ -88,26 +99,24 @@ gulp.task('default', function (done) {
       message: 'What are your package keywords?'
     }];
 
-    inquirer.prompt(prompts,
-        function (answers) {
-            var data = extend(defaults, answers);
-            data.appNameSlug = _.slugify(data.appName);
-            data.appKeywords = JSON.stringify(
-              data.appKeywords.replace(/,/g,' ').split(/\s+/g)
-            );
+    return inquirer.prompt(prompts, function (answers) {
+        var data = extend(defaults, answers);
+        data.appNameSlug = _.slugify(data.appName);
+        data.appKeywords = JSON.stringify(
+          data.appKeywords.replace(/,/g,' ').split(/\s+/g)
+        );
 
-            gulp.src(__dirname + '/templates/**')
-                .pipe(template(data))
-                .pipe(rename(function (file) {
-                    if (file.basename[0] === '_') {
-                        file.basename = '.' + file.basename.slice(1);
-                    }
-                }))
-                .pipe(conflict('./'))
-                .pipe(gulp.dest('./'))
-                .pipe(install())
-                .on('end', function () {
-                    done();
-                });
-        });
+        gulp.src(__dirname + '/templates/**')
+            .pipe(template(data))
+            .pipe(rename(function (file) {
+                if (file.basename[0] === '_') {
+                    file.basename = '.' + file.basename.slice(1);
+                }
+            }))
+            .pipe(conflict('./'))
+            .pipe(gulp.dest('./'))
+            .on('end', function () {
+                done();
+            });
+    });
 });

@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var commitParser = require('conventional-commits-parser');
+
+var commitFile = process.argv[2];
+var message = fs.readFileSync(commitFile, 'utf-8');
+var tokens = commitParser.sync(message);
+
+var types = ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore'];
+
+if (-1 === types.indexOf(tokens.type)) {
+  console.error('Commit type is invalid.');
+  help();
+}
+
+if (!tokens.subject) {
+  console.error('Commit subject is missing');
+}
+
+function help() {
+  console.error('\nCommit messages must take the following form');
+  console.error('  <' + types.join('|')+ '>(<scope>): <subject>');
+  console.error('  <body>');
+  console.error('  <footer>');
+  console.error('\nSee https://github.com/stevemao/conventional-commits-parser for more details');
+
+  process.exit(1);
+}
+

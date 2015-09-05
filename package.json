@@ -1,49 +1,53 @@
 {
-    "name": "slush-taylor1791",
-    "description": "my personal template for javascript apps",
-    "version": "0.2.0",
-    "homepage": "https://github.com/Taylor1791/slush-taylor1791",
-    "author": {
-        "name": "Taylor1791",
-        "email": "Taylor@Everding.email"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/Taylor1791/slush-taylor1791.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Taylor1791/slush-taylor1791/issues"
-    },
-    "licenses": [{
-        "type": "ISC",
-        "url": "https://github.com/Taylor1791/slush-taylor1791/blob/master/LICENSE"
-    }],
-    "main": "slushfile.js",
-    "engines": {
-        "node": ">= 0.10.26",
-        "npm": ">=1.4.3"
-    },
-    "scripts": {
-        "test": "echo \"No tests\""
-    },
-    "dependencies": {
-        "slush": ">=1.0.0",
-        "gulp": "^3.6.2",
-        "gulp-template": "^0.1.1",
-        "gulp-install": "^0.1.4",
-        "gulp-conflict": "^0.1.1",
-        "gulp-rename": "^1.2.0",
-        "underscore.string": "^2.3.3",
-        "inquirer": "^0.8.0",
-        "iniparser": "^1.0.5"
-    },
-    "keywords": [
-        "slushgenerator",
-        "slush",
-        "es6",
-        "es2015",
-        "slush-taylor1791",
-        "taylor1791",
-        "webpack"
-    ]
+  "name": "slush-taylor1791",
+  "description": "my personal template for javascript apps",
+  "version": "0.2.0",
+  "homepage": "https://github.com/Taylor1791/slush-taylor1791",
+  "author": {
+    "name": "Taylor1791",
+    "email": "Taylor@Everding.email"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Taylor1791/slush-taylor1791.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Taylor1791/slush-taylor1791/issues"
+  },
+  "licenses": [
+    {
+      "type": "ISC",
+      "url": "https://github.com/Taylor1791/slush-taylor1791/blob/master/LICENSE"
+    }
+  ],
+  "main": "slushfile.js",
+  "engines": {
+    "node": ">= 0.10.26",
+    "npm": ">=1.4.3"
+  },
+  "scripts": {
+    "test": "echo \"No tests\""
+  },
+  "dependencies": {
+    "conventional-commits-parser": "^0.1.0",
+    "gulp": "^3.6.2",
+    "gulp-conflict": "^0.1.1",
+    "gulp-install": "^0.1.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-shell": "^0.4.3",
+    "gulp-template": "^0.1.1",
+    "iniparser": "^1.0.5",
+    "inquirer": "^0.8.0",
+    "slush": ">=1.0.0",
+    "underscore.string": "^2.3.3"
+  },
+  "keywords": [
+    "slushgenerator",
+    "slush",
+    "es6",
+    "es2015",
+    "slush-taylor1791",
+    "taylor1791",
+    "webpack"
+  ]
 }
