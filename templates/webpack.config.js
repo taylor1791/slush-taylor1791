@@ -7,7 +7,7 @@ var distribution = process.env.NODE_ENV === 'production';
 module.exports = {
   target: 'web',
 
-  entry: './src/js/index.js',
+  entry: './src/index.js',
   output: {
     path: distribution ? 'dist' : 'src',
     publicPath: distribution ? '' : '/src',
@@ -36,7 +36,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(true),
     new HtmlWebpackPlugin({
-      template: 'src/html/index.html',
+      template: 'src/index.html',
       inject: 'body',
       minify: {
         collapseWhitespace: true,

@@ -1,4 +1,4 @@
-import {jsc, props} from './jsc-setup';
+import {jsc, props} from './util/jsc-setup';
 
 import {identity} from './index';
 

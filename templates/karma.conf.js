@@ -18,14 +18,14 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'], // try dots or see available reporters: https://npmjs.org/browse/keyword/karma-reporter
 
     files: [
-      'src/js/*.test.js',
-      'src/js/**/*.test.js'
+      'src/*.test.js',
+      'src/**/*.test.js'
     ],
     exclude: [],
 
     preprocessors: {
-      'src/js/*.test.js': ['webpack', 'sourcemap'],
-      'src/js/**/*.test.js': ['webpack', 'sourcemap']
+      'src/*.test.js': ['webpack', 'sourcemap'],
+      'src/**/*.test.js': ['webpack', 'sourcemap']
     },
 
     webpack: {
